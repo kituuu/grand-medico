@@ -1,13 +1,8 @@
-import {Text, StyleSheet, View, Image, Button, Pressable} from 'react-native';
-import React, {Component} from 'react';
-import Home from './Home';
+import {Text, StyleSheet, View, Image, Pressable} from 'react-native';
+import React from 'react';
 
-export default class SplashScreen extends Component {
-  render() {
-    var uuidExists: boolean = false;
-    if (uuidExists) {
-      return <Home />;
-    }
+export const SplashScreen = ({navigation}:{navigation:any}) => {
+
     return (
       <View style={styles.rootContainer}>
         <View style={{width: '100%'}}>
@@ -15,20 +10,20 @@ export default class SplashScreen extends Component {
             source={require('../assets/splash.jpg')}
             style={styles.image}
           />
-          {/* <View > */}
           <Pressable
             style={styles.button}
             onPress={() => {
               console.log('Login');
+                navigation.navigate('Login')
+              
             }}>
             <Text style={{fontSize: 20, color: '#fff'}}>Start</Text>
           </Pressable>
-          {/* </View> */}
         </View>
       </View>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   rootContainer: {

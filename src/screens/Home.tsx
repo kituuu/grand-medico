@@ -1,10 +1,20 @@
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {Pressable, SafeAreaView, StyleSheet, Text} from 'react-native';
 import React from 'react';
 
-const Home = () => {
+const Home = ({navigation}:{navigation:any}) => {
+  console.log(navigation);
   return (
     <SafeAreaView style={styles.rootContainer}>
-      <Text style={styles.text}>Mdgspace is awesome</Text>
+      <Text style={styles.text}>This is homepage, App flow will start from here</Text>
+      <Pressable
+            style={styles.button}
+            onPress={() => {
+              console.log('Admin');
+                navigation.navigate('Admin')
+              
+            }}>
+            <Text style={{fontSize: 20, color: '#fff'}}>Admin</Text>
+          </Pressable>
     </SafeAreaView>
   );
 };
@@ -21,5 +31,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     color: '#fff',
+  },
+  button: {
+    backgroundColor: '#054A91',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    alignSelf: 'center',
   },
 });
